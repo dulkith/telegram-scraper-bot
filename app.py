@@ -11,10 +11,6 @@ import traceback
 import time
 import random
 
-re="\033[1;31m"
-gr="\033[1;32m"
-cy="\033[1;36m"
-
 def banner():
     print(f"""Welcome to telegram scraper bot""")
 
