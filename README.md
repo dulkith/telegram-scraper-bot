@@ -13,4 +13,4 @@
     $ rm -rf telegram-scraper
     $ git clone https://github.com/dulkith/telegram-scraper-bot
     $ cd telegram-scraper-bot
-    $ python3 sim.py
+    $ python3 app.py
