@@ -12,5 +12,5 @@
     $ pip install Telethon --upgrade telethon
     $ rm -rf telegram-scraper
     $ git clone https://github.com/dulkith/telegram-scraper-bot
-    $ cd telegram-scraper
+    $ cd telegram-scraper-bot
     $ python3 sim.py
