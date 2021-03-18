@@ -196,11 +196,11 @@ for s in range(v+1):
                 inh+=1
                 break
             else:
-                print(b+" No more clients found.Now exiting..")
+                print(b+" No more clients found. Now exiting..")
                 Sleep(1)
                 sys.exit()
         if user['id'] in my_participants_id:
-            print(a+' User already present,skipping...')
+            print(a+' User already present, skipping...')
             n-=1
             with open('Members.csv', 'r',encoding='UTF-8') as f:
                 dat = csv.reader(f,delimiter=",",lineterminator="\n")
