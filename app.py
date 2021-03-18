@@ -208,6 +208,10 @@ for s in range(v+1):
                     if usR in tad:
                         lines.remove(tad)
                         break
+            with open("Members.csv","w",encoding='UTF-8') as f:
+                writer=csv.writer(f,delimiter=",",lineterminator="\n")
+                for line in lines:
+                    writer.writerow(line)    
             Sleep(1)       
             continue
         else:
@@ -218,7 +222,7 @@ for s in range(v+1):
                         continue
                 user_to_add = client.get_input_entity(user['username'])
                 client(InviteToChannelRequest(target_group_entity,[user_to_add]))
-                print(m+" Waiting for 2-4 Seconds...")
+                print(m+" Waiting for 2-6 Seconds...")
                 with open('Members.csv', 'r',encoding='UTF-8') as f:
                     dat = csv.reader(f,delimiter=",",lineterminator="\n")
                     for tad in dat:
@@ -230,7 +234,7 @@ for s in range(v+1):
                     for line in lines:
                         writer.writerow(line)        
                              
-                time.sleep(random.randrange(2,4))
+                time.sleep(random.randrange(2,6))
                 
                 q=0
             except PeerFloodError:
@@ -245,6 +249,10 @@ for s in range(v+1):
                         if usR in tad:
                             lines.remove(tad)
                             break
+                with open("Members.csv","w",encoding='UTF-8') as f:
+                    writer=csv.writer(f,delimiter=",",lineterminator="\n")
+                    for line in lines:
+                        writer.writerow(line)  
                 Sleep(1)
             except UserBotError:
                 print(r+' Can\'t add Bot. Skipping...')
@@ -253,7 +261,11 @@ for s in range(v+1):
                     for tad in dat:
                         if usR in tad:
                             lines.remove(tad)
-                            break    
+                            break
+                with open("Members.csv","w",encoding='UTF-8') as f:
+                    writer=csv.writer(f,delimiter=",",lineterminator="\n")
+                    for line in lines:
+                        writer.writerow(line)
             except InputUserDeactivatedError:
                 print(r+' The specified user was deleted. Skipping...')
                 with open('Members.csv', 'r',encoding='UTF-8') as f:
@@ -262,6 +274,10 @@ for s in range(v+1):
                         if usR in tad:
                             lines.remove(tad)
                             break
+                with open("Members.csv","w",encoding='UTF-8') as f:
+                    writer=csv.writer(f,delimiter=",",lineterminator="\n")
+                    for line in lines:
+                        writer.writerow(line)
                 Sleep(1)
             except UserChannelsTooMuchError:
                 print(r+' User in too much channel. Skipping.')
@@ -271,6 +287,10 @@ for s in range(v+1):
                         if usR in tad:
                             lines.remove(tad)
                             break
+                with open("Members.csv","w",encoding='UTF-8') as f:
+                    writer=csv.writer(f,delimiter=",",lineterminator="\n")
+                    for line in lines:
+                        writer.writerow(line)
                 Sleep(1)
             except UserNotMutualContactError:
                 print(r+' Mutual No. Skipped.')
@@ -280,6 +300,10 @@ for s in range(v+1):
                         if usR in tad:
                             lines.remove(tad)
                             break
+                with open("Members.csv","w",encoding='UTF-8') as f:
+                    writer=csv.writer(f,delimiter=",",lineterminator="\n")
+                    for line in lines:
+                        writer.writerow(line)
                 Sleep(1)
             except KeyboardInterrupt:
                 i=0
