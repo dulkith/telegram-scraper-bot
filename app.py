@@ -85,6 +85,7 @@ info()
 x=0
 inh=2
 t=0
+d=-1
 with open('multi_log.txt', 'r') as f:
     data = f.readlines()
 v=int((len(data))/2)
@@ -123,9 +124,31 @@ for s in range(v+1):
         print(m+str(i) +y+ ' - '+a + g.title)
         i+=1
     g_index = input(b+' Enter a number (or press ENTER to skip): ')
-    if g_index == '' :
+    if g_index == '':
         info()
         print(m+" Ok. skipping...")
+        Sleep(1)
+    elif d == 1 :
+        print(y+' Reload file...')
+        with open("Members.csv","w",encoding='UTF-8') as f:
+            writer=csv.writer(f,delimiter=",",lineterminator="\n")
+            for user in all_participants:
+                if user.username:
+                    username= user.username
+                else:
+                    username= ""
+                if user.first_name:
+                    first_name= user.first_name
+                else:
+                    first_name= ""
+                if user.last_name:
+                    last_name= user.last_name
+                else:
+                    last_name= ""
+                name= (first_name + ' ' + last_name).strip()
+                writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])
+        print(a+' Reload last scraped successfully.')
+        d=1
         Sleep(1)
     else:
         info()
@@ -152,6 +175,7 @@ for s in range(v+1):
                 name= (first_name + ' ' + last_name).strip()
                 writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])
         print(a+' Members scraped successfully.')
+        d=1
         Sleep(1)
     info()
     print(b+'Choose a group to add members:')
